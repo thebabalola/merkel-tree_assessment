@@ -4,7 +4,7 @@ const SHA256 = require('crypto-js/sha256');
 const addresses = [
   "0xabcdefabcdefabcdefabcdefabcdefabcdefabcde",
   "0xabcdef123456789abcdef123456789abcdef1234",
-  "0x789abcdef123456789abcdef123456789abcdef12",
+  "0x789abcdef123456789abcdef123456789abcdef23",
   "0x123456789abcdef123456789abcdef123456789a",
   "0x456789abcdef123456789abcdef123456789abcdef"
 ];
@@ -15,7 +15,7 @@ const merkleTree = new MerkleTree(leafNodes, SHA256); //Hash addresses
 const root = merkleTree.getRoot().toString('hex');
 console.log("The Merkle-Root:", root); // Get merkle root
 
-const addressToVerify = "0x789abcdef123456789abcdef123456789abcdef12";
+const addressToVerify = "0x789abcdef123456789abcdef123456789abcdef23";
 const leafToVerify = SHA256(addressToVerify).toString();
 const proof = merkleTree.getProof(leafToVerify); // Generates proof for specific address
 
