@@ -11,18 +11,18 @@ const addresses = [
 
 
 const leafNodes = addresses.map(addr => SHA256(addr).toString());
-const merkleTree = new MerkleTree(leafNodes, SHA256);
+const merkleTree = new MerkleTree(leafNodes, SHA256); //Hash addresses
 
 
 const root = merkleTree.getRoot().toString('hex');
-console.log("Merkle Root:", root);
+console.log("Merkle Root:", root); // Get merkle root
 
-// Generates proof for specific address
-const addressToVerify = "0x123456789abcdef123456789abcdef123456789a";
+
+const addressToVerify = "0x789abcdef123456789abcdef123456789abcdef12";
 const leafToVerify = SHA256(addressToVerify).toString();
-const proof = merkleTree.getProof(leafToVerify);
+const proof = merkleTree.getProof(leafToVerify); // Generates proof for specific address
 
 
 const isValid = merkleTree.verify(proof, leafToVerify, root);
-console.log(`Address ${addressToVerify} is part of the tree?`, isValid); // Verify's the proof
+console.log(`This Address ${addressToVerify} is part of the tree?`, isValid); // Verify's the proof, if it exist or not
 
