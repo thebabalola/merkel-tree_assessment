@@ -21,4 +21,3 @@ const proof = merkleTree.getProof(leafToVerify); // Generates proof for specific
 
 const isValid = merkleTree.verify(proof, leafToVerify, root);
 console.log(`Is this Address ${addressToVerify} a member of the tree?`, isValid); // Verify's the proof, if it exist or not
-
