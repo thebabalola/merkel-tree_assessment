@@ -24,5 +24,5 @@ const proof = merkleTree.getProof(leafToVerify);
 
 
 const isValid = merkleTree.verify(proof, leafToVerify, root);
-console.log(`Is the address ${addressToVerify} part of the tree?`, isValid); // Verify's the proof
+console.log(`Address ${addressToVerify} is part of the tree?`, isValid); // Verify's the proof
 
